@@ -12,10 +12,10 @@ import org.springframework.stereotype.Service;
  *
  * @author Victor
  */
-@Service
+@Service 
 public class PersonaServiceImpl implements PersonaService {
 
-    @Autowired
+    @Autowired // inyeccion de dependencias
     private PersonaRepository personaRepository;
     
     @Override
