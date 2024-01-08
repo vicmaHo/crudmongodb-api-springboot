@@ -4,8 +4,12 @@
  */
 package com.victorhernandez.crudMongo.model;
 
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import org.springframework.data.annotation.Id;
+
 
 /**
  *
@@ -18,6 +22,10 @@ public class Persona {
     private String nombre;
     private String apellido;
     private String telefono;
+    private Date fechaNacimiento;
+    //Probando estructuras de datos para la base de datos NoSQL
+    private List<Double> notas;
+    private Map<String, String> direcciones;
 
     public Persona(){
         
@@ -95,6 +103,30 @@ public class Persona {
             return false;
         }
         return Objects.equals(this.id, other.id);
+    }
+
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public List<Double> getNotas() {
+        return notas;
+    }
+
+    public void setNotas(List<Double> notas) {
+        this.notas = notas;
+    }
+
+    public Map<String, String> getDirecciones() {
+        return direcciones;
+    }
+
+    public void setDirecciones(Map<String, String> direcciones) {
+        this.direcciones = direcciones;
     }
     
     

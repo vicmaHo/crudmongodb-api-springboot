@@ -14,6 +14,7 @@ import org.springframework.http.HttpStatus;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,7 +35,7 @@ public class PersonaController {
     private PersonaService personaService;
     
     @GetMapping("/all")
-    public ResponseEntity<List<Persona>> getAllPersonas(){
+    public ResponseEntity<List<Persona>> getAllPersonas(){  // response entity es una clase que engloba toda la respuesta http
         List<Persona> personas = personaService.getAllPersonas();
         return ResponseEntity.ok().body(personas); // indico que el estado de la respuesta es correcto y devuelvo la lista de personas
     }
@@ -73,7 +74,7 @@ public class PersonaController {
        }
     }
 
-    @GetMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deletePersonaById(@PathVariable Long id){
         personaService.deletePersonaById(id);   
         return ResponseEntity.noContent().build(); // no respondo nada ya que el retorno es void
